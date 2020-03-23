@@ -186,6 +186,18 @@ script:
 
   - printenv | grep PYTHON
   - ./travis.sh
+  - $PYTHON_EXECUTABLE -m pip install wheel
+  - $PYTHON_EXECUTABLE -m pip install setuptools
+  - $PYTHON_EXECUTABLE setup.py bdist_wheel
 
 after_success:
   - if [[ -n "${COVERAGE}" ]]; then bash <(curl -s https://codecov.io/bash); fi
+
+deploy:
+  provider: pypi
+  server: https://test.pypi.org
+  user: __token__
+  password:
+    secure: n/n2gy3hE9MnCvhiXT9tLQQRwC5FBgVWt3jH49sXGqj0QYvb/OaqRON4iDNClAmEbegNRcxpMdDPI3Uig7OIFWjz+/rV7xEMpsMX1GUBqGTe0L4W1TvD9F1DEiiD8iz139lq8hZ9rqDn2q8mAvUelADqDS7h/LRUnWbqRv1LdyCCmg3ctd7x/yIf2jH79anSmsR3A9OZH6ciRDAcjy5pKwphw/0Xg66b6jzuzMupS22UUd1iYEcYJfG0aK8Ao3Q9PwpBJVqoLIlsDpk2I22KqM1KLLoJkSeI8wnTpxTtmad+4OrbhIBTaGA7Qy7JWVUfrx0LKnfNOnhwdqycc+QcQdMAhZcszzvR4Ckr+7lhJ5KphWMzkWizkR2hnTUNV/LUGZovKhX1NZ5wWX58nfryfupU0vTvxfyzdRLoL+l4ZtSA56772dY1K9A4HVNt7XI5WPUVe/zyVHnJBZiDC7HEywIbmfQIkj/e/q+DkS+v+j9uOq+B54hHHc9dcOJWKc0gaMvrSBgIvQsGUwSS7T6QWowYp30vN1I8GI2+OygZyH0ccX53a0alUeDwdeYFuB+A/gXygTC7/7LzYMsz7Bup2uiF9AohfOczRpKYphtTt6Hfcmn8TWWdQtyAlT0pXKPGszbzkYhvQ686LT4z4yFnj+uB7GxemtMWurI6lHEYRIo=
+  on:
+    all_branches: true
