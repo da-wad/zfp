@@ -8,10 +8,9 @@ endfunction()
 
 cfp_add_test(1 f 32)
 cfp_add_test(2 f 32)
-cfp_add_test(3 f 32)
 cfp_add_test(1 d 64)
-cfp_add_test(2 d 64)
-cfp_add_test(3 d 64)
+
+
 
 if(DEFINED CFP_NAMESPACE)
   add_executable(testCfpNamespace testCfpNamespace.c)

@@ -106,12 +106,9 @@ class TestNumpy(unittest.TestCase):
             self.assertIsNone(np.testing.assert_array_equal(decompressed_array, random_array))
 
     def test_utils(self):
-        for ndims in range(1, 5):
+        for ndims in range(1, 2):
             for ztype, ztype_str in [
-                    (zfpy.type_float,  "float"),
-                    (zfpy.type_double, "double"),
-                    (zfpy.type_int32,  "int32"),
-                    (zfpy.type_int64,  "int64"),
+                    (zfpy.type_float,  "float")
             ]:
                 orig_random_array = test_utils.getRandNumpyArray(ndims, ztype)
                 orig_random_array_dims = orig_random_array.shape + tuple(0 for i in range(4 - orig_random_array.ndim))
