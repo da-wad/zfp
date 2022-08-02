@@ -3,7 +3,7 @@ import numpy as np
 
 setup(
     name="zfpy",
-    version="1.0.0",
+    version="1.0.0-rc1",
     author="Peter Lindstrom",
     author_email="zfp@llnl.gov",
     url="https://zfp.llnl.gov",
