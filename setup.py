@@ -4,7 +4,7 @@ import numpy as np
 
 setup(
     name="zfpy",
-    version="1.0.0-2",
+    version="1.0.0-3",
     author="Peter Lindstrom",
     author_email="zfp@llnl.gov",
     url="https://zfp.llnl.gov",
