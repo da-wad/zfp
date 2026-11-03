@@ -11,7 +11,7 @@ class NumpyImport:
 setup(
     name="zfpy",
     setup_requires=["numpy", "cython"],
-    version="1.0.1",
+    version="1.0.1.post0",
     author="Peter Lindstrom, Danielle Asher",
     author_email="zfp@llnl.gov",
     url="https://zfp.llnl.gov",
